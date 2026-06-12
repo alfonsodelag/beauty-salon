@@ -2,11 +2,11 @@
 import Layout from '@layouts/Layout.astro'
 import NavigationBar from '@components/Navigation'
 import Footer from '@components/Footer.astro'
-import { sanityClient, AURA_CATEGORY_SLUG } from '@lib/sanityClient'
+import { sanityClient } from '@lib/sanityClient'
 import { urlFor } from '@lib/sanityImage'
 
 const posts = await sanityClient.fetch(
-  `*[_type == "post" && category->slug.current == $category] | order(publishedAt desc) {
+  `*[_type == "post"] | order(publishedAt desc) {
     _id,
     title,
     slug,
@@ -15,8 +15,7 @@ const posts = await sanityClient.fetch(
     mainImage,
     "author": author->name,
     "categoryTitle": category->title
-  }`,
-  { category: AURA_CATEGORY_SLUG }
+  }`
 )
 
 function formatDate(dateStr: string): string {
