@@ -5,10 +5,8 @@ import Footer from '@components/Footer.astro'
 import { sanityClient, AURA_PROJECT } from '@lib/sanityClient'
 import { urlFor } from '@lib/sanityImage'
 
-// Temporary: show all posts until existing posts are tagged with project="aura" in Sanity Studio
-// TODO: switch back to project == $project once posts are updated
 const posts = await sanityClient.fetch(
-  `*[_type == "post"] | order(publishedAt desc) {
+  `*[_type == "post" && project == $project] | order(publishedAt desc) {
     _id,
     title,
     slug,
@@ -17,7 +15,8 @@ const posts = await sanityClient.fetch(
     mainImage,
     "author": author->name,
     "categoryTitle": category->title
-  }`
+  }`,
+  { project: AURA_PROJECT }
 )
 
 function formatDate(dateStr: string): string {
