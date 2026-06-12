@@ -96,6 +96,9 @@ const NavigationBar = (): JSX.Element => {
                   </div>
                 )}
               </div>
+              <a href="/blog" className="text-[#2F2521] hover:text-[#AE9380] transition-colors">
+                Blog
+              </a>
               <a href="/contact" className="text-[#2F2521] hover:text-[#AE9380] transition-colors">
                 Contacto
               </a>
@@ -160,6 +163,9 @@ const NavigationBar = (): JSX.Element => {
               </a>
             </div>
           </details>
+          <a href="/blog" className="block text-[#2F2521] py-1 hover:text-[#AE9380]">
+            Blog
+          </a>
           <a href="/contact" className="block text-[#2F2521] py-1 hover:text-[#AE9380]">
             Contacto
           </a>

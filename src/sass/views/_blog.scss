@@ -1,0 +1,276 @@
+@use '../includes/colors' as *;
+
+// ─── Blog Hero ────────────────────────────────────────────────────────────────
+.blog-hero {
+  background-color: $ivory;
+  border-bottom: 1px solid $linenBorder;
+  padding: 5rem 1.5rem 4rem;
+  text-align: center;
+
+  &__title {
+    font-family: "Belleza", serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: $taupeDark;
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    font-size: 1.15rem;
+    color: $mochaMuted;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+}
+
+// ─── Blog Listing ─────────────────────────────────────────────────────────────
+.blog-listing {
+  background-color: $ivory;
+  padding: 4rem 1.5rem 6rem;
+  min-height: 60vh;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// ─── Blog Card ────────────────────────────────────────────────────────────────
+.blog-card {
+  background: $white;
+  border: 1px solid $linenBorder;
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 28px rgba(#AE9380, 0.18);
+    transform: translateY(-3px);
+  }
+
+  &__img-link {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+
+    .blog-card:hover & {
+      transform: scale(1.03);
+    }
+  }
+
+  &__body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1;
+  }
+
+  &__date {
+    font-size: 0.8rem;
+    color: $mochaMuted;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-family: "Belleza", serif;
+    font-size: 1.25rem;
+    color: $espresso;
+    line-height: 1.4;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        color: $taupeDark;
+      }
+    }
+  }
+
+  &__desc {
+    font-size: 0.95rem;
+    color: $mochaMuted;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  &__cta {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: $taupeDark;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid $taupeLight;
+    padding-bottom: 2px;
+    align-self: flex-start;
+    transition: color 0.2s, border-color 0.2s;
+
+    &:hover {
+      color: $brandTaupe;
+      border-color: $brandTaupe;
+    }
+  }
+}
+
+// ─── Blog Empty ───────────────────────────────────────────────────────────────
+.blog-empty {
+  text-align: center;
+  padding: 5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  color: $mochaMuted;
+  font-size: 1.1rem;
+}
+
+.blog-back-btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  background-color: $taupeDark;
+  color: $white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: $brandTaupe;
+  }
+}
+
+// ─── Blog Post ────────────────────────────────────────────────────────────────
+.blog-post {
+  background-color: $ivory;
+  min-height: 100vh;
+
+  &__hero {
+    width: 100%;
+    max-height: 520px;
+    overflow: hidden;
+  }
+
+  &__hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  &__header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid $linenBorder;
+    padding-bottom: 2rem;
+  }
+
+  &__back {
+    display: inline-block;
+    font-size: 0.88rem;
+    color: $mochaMuted;
+    text-decoration: none;
+    margin-bottom: 1.25rem;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $taupeDark;
+    }
+  }
+
+  &__date {
+    display: block;
+    font-size: 0.82rem;
+    color: $mochaMuted;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  &__title {
+    font-family: "Belleza", serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: $espresso;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  &__desc {
+    font-size: 1.15rem;
+    color: $mochaMuted;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  &__author {
+    font-size: 0.9rem;
+    color: $mochaMuted;
+  }
+
+  &__body {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: $espresso;
+  }
+
+  &__footer {
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid $linenBorder;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  &__cta {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background-color: $taupeDark;
+    color: $white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.25s;
+
+    &:hover {
+      background-color: $brandTaupe;
+    }
+  }
+
+  &__back-bottom {
+    font-size: 0.9rem;
+    color: $mochaMuted;
+    text-decoration: none;
+    border-bottom: 1px solid $linenBorder;
+
+    &:hover {
+      color: $taupeDark;
+    }
+  }
+}

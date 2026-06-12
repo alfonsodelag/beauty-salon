@@ -1,0 +1,84 @@
+---
+import Layout from '@layouts/Layout.astro'
+import NavigationBar from '@components/Navigation'
+import Footer from '@components/Footer.astro'
+import { sanityClient, AURA_CATEGORY_SLUG } from '@lib/sanityClient'
+import { urlFor } from '@lib/sanityImage'
+
+const posts = await sanityClient.fetch(
+  `*[_type == "post" && category->slug.current == $category] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    description,
+    publishedAt,
+    mainImage,
+    "author": author->name
+  }`,
+  { category: AURA_CATEGORY_SLUG }
+)
+
+function formatDate(dateStr: string): string {
+  if (!dateStr) return ''
+  return new Date(dateStr).toLocaleDateString('es-PA', {
+    year: 'numeric', month: 'long', day: 'numeric'
+  })
+}
+---
+
+<Layout title="Blog | AURA Beauty Salon">
+  <NavigationBar client:load />
+
+  <section class="blog-hero" aria-label="Blog de AURA Beauty Salon">
+    <div class="blog-hero__content">
+      <h1 class="blog-hero__title">Blog</h1>
+      <p class="blog-hero__subtitle">
+        Consejos de belleza, tendencias y cuidado profesional para tu cabello, uñas y más.
+      </p>
+    </div>
+  </section>
+
+  <main class="blog-listing" aria-label="Artículos del blog">
+    {posts.length === 0 ? (
+      <div class="blog-empty">
+        <p>Próximamente nuevos artículos. ¡Vuelve pronto!</p>
+        <a href="/" class="blog-back-btn">Volver al inicio</a>
+      </div>
+    ) : (
+      <div class="blog-grid">
+        {posts.map((post: any) => (
+          <article class="blog-card" key={post._id}>
+            {post.mainImage && (
+              <a href={`/blog/${post.slug.current}`} class="blog-card__img-link" tabindex="-1" aria-hidden="true">
+                <img
+                  src={urlFor(post.mainImage).width(600).height(380).url()}
+                  alt={post.mainImage.alt || post.title}
+                  class="blog-card__img"
+                  loading="lazy"
+                />
+              </a>
+            )}
+            <div class="blog-card__body">
+              {post.publishedAt && (
+                <time class="blog-card__date" datetime={post.publishedAt}>
+                  {formatDate(post.publishedAt)}
+                </time>
+              )}
+              <h2 class="blog-card__title">
+                <a href={`/blog/${post.slug.current}`}>{post.title}</a>
+              </h2>
+              {post.description && (
+                <p class="blog-card__desc">{post.description}</p>
+              )}
+              <a href={`/blog/${post.slug.current}`} class="blog-card__cta">
+                Leer artículo →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+  </main>
+
+  <Footer />
+</Layout>

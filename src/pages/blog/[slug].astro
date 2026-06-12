@@ -1,0 +1,91 @@
+---
+import Layout from '@layouts/Layout.astro'
+import NavigationBar from '@components/Navigation'
+import Footer from '@components/Footer.astro'
+import PortableTextRenderer from '@components/Blog/PortableTextRenderer'
+import { sanityClient, AURA_CATEGORY_SLUG } from '@lib/sanityClient'
+import { urlFor } from '@lib/sanityImage'
+
+export async function getStaticPaths() {
+  const posts = await sanityClient.fetch(
+    `*[_type == "post" && category->slug.current == $category] { "slug": slug.current }`,
+    { category: AURA_CATEGORY_SLUG }
+  )
+  return posts.map((post: { slug: string }) => ({ params: { slug: post.slug } }))
+}
+
+const { slug } = Astro.params
+
+const post = await sanityClient.fetch(
+  `*[_type == "post" && slug.current == $slug][0] {
+    title,
+    description,
+    publishedAt,
+    mainImage,
+    body,
+    "author": author->name,
+    "category": category->title
+  }`,
+  { slug }
+)
+
+if (!post) return Astro.redirect('/blog')
+
+function formatDate(dateStr: string): string {
+  if (!dateStr) return ''
+  return new Date(dateStr).toLocaleDateString('es-PA', {
+    year: 'numeric', month: 'long', day: 'numeric'
+  })
+}
+---
+
+<Layout title={`${post.title} | AURA Beauty Salon`}>
+  <NavigationBar client:load />
+
+  <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
+    {post.mainImage && (
+      <div class="blog-post__hero">
+        <img
+          src={urlFor(post.mainImage).width(1200).height(600).url()}
+          alt={post.mainImage.alt || post.title}
+          class="blog-post__hero-img"
+          loading="eager"
+          itemprop="image"
+        />
+      </div>
+    )}
+
+    <div class="blog-post__container">
+      <header class="blog-post__header">
+        <a href="/blog" class="blog-post__back">← Volver al blog</a>
+        {post.publishedAt && (
+          <time class="blog-post__date" datetime={post.publishedAt} itemprop="datePublished">
+            {formatDate(post.publishedAt)}
+          </time>
+        )}
+        <h1 class="blog-post__title" itemprop="headline">{post.title}</h1>
+        {post.description && (
+          <p class="blog-post__desc" itemprop="description">{post.description}</p>
+        )}
+        {post.author && (
+          <p class="blog-post__author">Por <strong>{post.author}</strong></p>
+        )}
+      </header>
+
+      <div class="blog-post__body" itemprop="articleBody">
+        {post.body && (
+          <PortableTextRenderer value={post.body} client:load />
+        )}
+      </div>
+
+      <footer class="blog-post__footer">
+        <a href="https://wa.me/50767925695" target="_blank" rel="noopener noreferrer" class="blog-post__cta">
+          ¿Lista para tu cita? Escríbenos por WhatsApp
+        </a>
+        <a href="/blog" class="blog-post__back-bottom">← Ver más artículos</a>
+      </footer>
+    </div>
+  </article>
+
+  <Footer />
+</Layout>
