@@ -13,7 +13,8 @@ const posts = await sanityClient.fetch(
     description,
     publishedAt,
     mainImage,
-    "author": author->name
+    "author": author->name,
+    "categoryTitle": category->title
   }`,
   { category: AURA_CATEGORY_SLUG }
 )
@@ -21,7 +22,7 @@ const posts = await sanityClient.fetch(
 function formatDate(dateStr: string): string {
   if (!dateStr) return ''
   return new Date(dateStr).toLocaleDateString('es-PA', {
-    year: 'numeric', month: 'long', day: 'numeric'
+    year: 'numeric', month: 'short', day: 'numeric'
   })
 }
 ---
@@ -59,10 +60,8 @@ function formatDate(dateStr: string): string {
               </a>
             )}
             <div class="blog-card__body">
-              {post.publishedAt && (
-                <time class="blog-card__date" datetime={post.publishedAt}>
-                  {formatDate(post.publishedAt)}
-                </time>
+              {post.categoryTitle && (
+                <span class="blog-card__category">{post.categoryTitle}</span>
               )}
               <h2 class="blog-card__title">
                 <a href={`/blog/${post.slug.current}`}>{post.title}</a>
@@ -70,9 +69,16 @@ function formatDate(dateStr: string): string {
               {post.description && (
                 <p class="blog-card__desc">{post.description}</p>
               )}
-              <a href={`/blog/${post.slug.current}`} class="blog-card__cta">
-                Leer artículo →
-              </a>
+              <div class="blog-card__footer">
+                <a href={`/blog/${post.slug.current}`} class="blog-card__cta">
+                  Leer más →
+                </a>
+                {post.publishedAt && (
+                  <time class="blog-card__date" datetime={post.publishedAt}>
+                    {formatDate(post.publishedAt)}
+                  </time>
+                )}
+              </div>
             </div>
           </article>
         ))}

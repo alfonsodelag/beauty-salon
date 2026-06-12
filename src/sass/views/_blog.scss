@@ -15,17 +15,17 @@
   }
 
   &__subtitle {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: $mochaMuted;
-    max-width: 560px;
+    max-width: 540px;
     margin: 0 auto;
-    line-height: 1.7;
+    line-height: 1.75;
   }
 }
 
 // ─── Blog Listing ─────────────────────────────────────────────────────────────
 .blog-listing {
-  background-color: $ivory;
+  background-color: #F5EEE8;
   padding: 4rem 1.5rem 6rem;
   min-height: 60vh;
 }
@@ -33,8 +33,8 @@
 .blog-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
-  max-width: 1100px;
+  gap: 2rem;
+  max-width: 1160px;
   margin: 0 auto;
 
   @media (min-width: 640px) {
@@ -49,55 +49,60 @@
 // ─── Blog Card ────────────────────────────────────────────────────────────────
 .blog-card {
   background: $white;
-  border: 1px solid $linenBorder;
-  border-radius: 2px;
+  border-radius: 14px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 2px 12px rgba(174, 147, 128, 0.12);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 
   &:hover {
-    box-shadow: 0 8px 28px rgba(#AE9380, 0.18);
-    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(174, 147, 128, 0.22);
+    transform: translateY(-4px);
   }
 
   &__img-link {
     display: block;
     overflow: hidden;
     aspect-ratio: 16 / 10;
+    flex-shrink: 0;
   }
 
   &__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.45s ease;
 
     .blog-card:hover & {
-      transform: scale(1.03);
+      transform: scale(1.04);
     }
   }
 
   &__body {
-    padding: 1.5rem;
+    padding: 1.6rem 1.5rem 1.4rem;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0;
     flex: 1;
   }
 
-  &__date {
-    font-size: 0.8rem;
-    color: $mochaMuted;
-    letter-spacing: 0.05em;
+  &__category {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
     text-transform: uppercase;
+    color: $brandTaupe;
+    margin-bottom: 0.6rem;
   }
 
   &__title {
     font-family: "Belleza", serif;
-    font-size: 1.25rem;
+    font-size: 1.18rem;
     color: $espresso;
     line-height: 1.4;
+    margin-bottom: 0.65rem;
 
     a {
       color: inherit;
@@ -110,28 +115,44 @@
   }
 
   &__desc {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     color: $mochaMuted;
-    line-height: 1.6;
+    line-height: 1.65;
     flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid $linenBorder;
+    gap: 0.5rem;
   }
 
   &__cta {
-    display: inline-block;
-    margin-top: 0.75rem;
-    font-size: 0.9rem;
+    font-size: 0.87rem;
     color: $taupeDark;
     font-weight: 600;
     text-decoration: none;
-    border-bottom: 1px solid $taupeLight;
-    padding-bottom: 2px;
-    align-self: flex-start;
-    transition: color 0.2s, border-color 0.2s;
+    transition: color 0.2s;
 
     &:hover {
       color: $brandTaupe;
-      border-color: $brandTaupe;
     }
+  }
+
+  &__date {
+    font-size: 0.78rem;
+    color: $mochaMuted;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }
 
@@ -153,6 +174,7 @@
   background-color: $taupeDark;
   color: $white;
   text-decoration: none;
+  border-radius: 6px;
   font-size: 0.95rem;
   transition: background-color 0.2s;
 
@@ -166,37 +188,20 @@
   background-color: $ivory;
   min-height: 100vh;
 
-  &__hero {
-    width: 100%;
-    max-height: 520px;
-    overflow: hidden;
-  }
-
-  &__hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
   &__container {
-    max-width: 780px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 3rem 1.5rem 5rem;
   }
 
-  &__header {
-    margin-bottom: 3rem;
-    border-bottom: 1px solid $linenBorder;
-    padding-bottom: 2rem;
-  }
-
   &__back {
-    display: inline-block;
-    font-size: 0.88rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.85rem;
     color: $mochaMuted;
     text-decoration: none;
-    margin-bottom: 1.25rem;
+    margin-bottom: 2rem;
     transition: color 0.2s;
 
     &:hover {
@@ -204,39 +209,117 @@
     }
   }
 
-  &__date {
-    display: block;
-    font-size: 0.82rem;
-    color: $mochaMuted;
-    letter-spacing: 0.06em;
+  &__header {
+    margin-bottom: 2rem;
+  }
+
+  &__category {
+    display: inline-block;
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    color: $brandTaupe;
     margin-bottom: 0.75rem;
   }
 
   &__title {
     font-family: "Belleza", serif;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(1.85rem, 5vw, 2.75rem);
     color: $espresso;
     line-height: 1.25;
     margin-bottom: 1rem;
   }
 
   &__desc {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: $mochaMuted;
     line-height: 1.7;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
   }
 
-  &__author {
-    font-size: 0.9rem;
+  &__byline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
     color: $mochaMuted;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $linenBorder;
+
+    time {
+      display: inline-block;
+    }
+
+    .blog-post__author-sep {
+      color: $linenBorder;
+    }
+  }
+
+  &__hero {
+    margin: 0 0 2.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    max-height: 440px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
   }
 
   &__body {
     font-size: 1.05rem;
-    line-height: 1.85;
+    line-height: 1.9;
     color: $espresso;
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-family: "Belleza", serif;
+      font-size: 1.6rem;
+      color: $taupeDark;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    h3 {
+      font-family: "Belleza", serif;
+      font-size: 1.25rem;
+      color: $espresso;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    blockquote {
+      border-left: 3px solid $brandTaupe;
+      padding-left: 1.25rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: $mochaMuted;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 2rem 0;
+    }
   }
 
   &__footer {
@@ -255,6 +338,7 @@
     background-color: $taupeDark;
     color: $white;
     text-decoration: none;
+    border-radius: 8px;
     font-size: 1rem;
     transition: background-color 0.25s;
 
@@ -267,7 +351,6 @@
     font-size: 0.9rem;
     color: $mochaMuted;
     text-decoration: none;
-    border-bottom: 1px solid $linenBorder;
 
     &:hover {
       color: $taupeDark;

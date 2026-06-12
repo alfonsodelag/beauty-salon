@@ -43,34 +43,45 @@ function formatDate(dateStr: string): string {
   <NavigationBar client:load />
 
   <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
-    {post.mainImage && (
-      <div class="blog-post__hero">
-        <img
-          src={urlFor(post.mainImage).width(1200).height(600).url()}
-          alt={post.mainImage.alt || post.title}
-          class="blog-post__hero-img"
-          loading="eager"
-          itemprop="image"
-        />
-      </div>
-    )}
-
     <div class="blog-post__container">
+
+      <a href="/blog" class="blog-post__back">← Volver al blog</a>
+
       <header class="blog-post__header">
-        <a href="/blog" class="blog-post__back">← Volver al blog</a>
-        {post.publishedAt && (
-          <time class="blog-post__date" datetime={post.publishedAt} itemprop="datePublished">
-            {formatDate(post.publishedAt)}
-          </time>
+        {post.category && (
+          <span class="blog-post__category">{post.category}</span>
         )}
         <h1 class="blog-post__title" itemprop="headline">{post.title}</h1>
         {post.description && (
           <p class="blog-post__desc" itemprop="description">{post.description}</p>
         )}
-        {post.author && (
-          <p class="blog-post__author">Por <strong>{post.author}</strong></p>
-        )}
+        <div class="blog-post__byline">
+          {post.publishedAt && (
+            <time datetime={post.publishedAt} itemprop="datePublished">
+              {formatDate(post.publishedAt)}
+            </time>
+          )}
+          {post.author && post.publishedAt && (
+            <span class="blog-post__author-sep">·</span>
+          )}
+          {post.author && (
+            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+              Por <strong itemprop="name">{post.author}</strong>
+            </span>
+          )}
+        </div>
       </header>
+
+      {post.mainImage && (
+        <div class="blog-post__hero">
+          <img
+            src={urlFor(post.mainImage).width(1200).height(630).url()}
+            alt={post.mainImage.alt || post.title}
+            loading="eager"
+            itemprop="image"
+          />
+        </div>
+      )}
 
       <div class="blog-post__body" itemprop="articleBody">
         {post.body && (
@@ -84,6 +95,7 @@ function formatDate(dateStr: string): string {
         </a>
         <a href="/blog" class="blog-post__back-bottom">← Ver más artículos</a>
       </footer>
+
     </div>
   </article>
 
