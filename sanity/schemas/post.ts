@@ -45,11 +45,23 @@ export const post = defineType({
       ],
     }),
     defineField({
+      name: 'project',
+      title: 'Proyecto / Cliente',
+      type: 'string',
+      description: 'Identificador del proyecto para filtrar posts. Usa "aura" para AURA Beauty Salon.',
+      options: {
+        list: [
+          { title: 'AURA Beauty Salon', value: 'aura' },
+        ],
+      },
+      validation: Rule => Rule.required(),
+    }),
+    defineField({
       name: 'category',
-      title: 'Categoría / Salón',
+      title: 'Categoría',
       type: 'reference',
       to: [{ type: 'category' }],
-      description: 'Selecciona la categoría del salón para filtrar posts por cliente.',
+      description: 'Categoría de contenido del artículo (cabello, uñas, etc.)',
       validation: Rule => Rule.required(),
     }),
     defineField({

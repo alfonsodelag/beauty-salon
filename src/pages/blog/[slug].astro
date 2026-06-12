@@ -3,13 +3,13 @@ import Layout from '@layouts/Layout.astro'
 import NavigationBar from '@components/Navigation'
 import Footer from '@components/Footer.astro'
 import PortableTextRenderer from '@components/Blog/PortableTextRenderer'
-import { sanityClient, AURA_CATEGORIES } from '@lib/sanityClient'
+import { sanityClient, AURA_PROJECT } from '@lib/sanityClient'
 import { urlFor } from '@lib/sanityImage'
 
 export async function getStaticPaths() {
+  // Temporary: include all posts until tagged with project="aura" in Sanity Studio
   const posts = await sanityClient.fetch(
-    `*[_type == "post" && category->slug.current in $cats] { "slug": slug.current }`,
-    { cats: AURA_CATEGORIES }
+    `*[_type == "post"] { "slug": slug.current }`
   )
   return posts.map((post: { slug: string }) => ({ params: { slug: post.slug } }))
 }
