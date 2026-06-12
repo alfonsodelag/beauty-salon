@@ -3,14 +3,13 @@ import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const NavigationBar = (): JSX.Element => {
-
   const [servicesOpen, setServicesOpen] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   return (
     <nav className="bg-[#FFF8F1] border-b border-[#E7D2C4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 relative">
+        <div className="flex items-center justify-between h-20 relative">
           {/* Left menu */}
           <div className="flex items-center space-x-4 sm:space-x-6">
             <button
@@ -45,10 +44,16 @@ const NavigationBar = (): JSX.Element => {
 
             {/* Desktop menu */}
             <div className="hidden sm:flex space-x-6 z-50">
-              <a href="/" className="text-[#2F2521] hover:text-[#AE9380] transition-colors">
+              <a
+                href="/"
+                className="text-[#2F2521] hover:text-[#AE9380] transition-colors"
+              >
                 Inicio
               </a>
-              <a href="/about" className="text-[#2F2521] hover:text-[#AE9380] transition-colors">
+              <a
+                href="/about"
+                className="text-[#2F2521] hover:text-[#AE9380] transition-colors"
+              >
                 Nosotros
               </a>
               <div className="relative">
@@ -96,10 +101,16 @@ const NavigationBar = (): JSX.Element => {
                   </div>
                 )}
               </div>
-              <a href="/blog" className="text-[#2F2521] hover:text-[#AE9380] transition-colors">
+              <a
+                href="/blog"
+                className="text-[#2F2521] hover:text-[#AE9380] transition-colors"
+              >
                 Blog
               </a>
-              <a href="/contact" className="text-[#2F2521] hover:text-[#AE9380] transition-colors">
+              <a
+                href="/contact"
+                className="text-[#2F2521] hover:text-[#AE9380] transition-colors"
+              >
                 Contacto
               </a>
             </div>
@@ -138,10 +149,16 @@ const NavigationBar = (): JSX.Element => {
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="sm:hidden px-4 pb-4 space-y-2 bg-[#FFF8F1] border-t border-[#E7D2C4] z-50">
-          <a href="/" className="block text-[#2F2521] py-1 hover:text-[#AE9380]">
+          <a
+            href="/"
+            className="block text-[#2F2521] py-1 hover:text-[#AE9380]"
+          >
             Inicio
           </a>
-          <a href="/about" className="block text-[#2F2521] py-1 hover:text-[#AE9380]">
+          <a
+            href="/about"
+            className="block text-[#2F2521] py-1 hover:text-[#AE9380]"
+          >
             Nosotros
           </a>
           <details className="group">
@@ -163,16 +180,22 @@ const NavigationBar = (): JSX.Element => {
               </a>
             </div>
           </details>
-          <a href="/blog" className="block text-[#2F2521] py-1 hover:text-[#AE9380]">
+          <a
+            href="/blog"
+            className="block text-[#2F2521] py-1 hover:text-[#AE9380]"
+          >
             Blog
           </a>
-          <a href="/contact" className="block text-[#2F2521] py-1 hover:text-[#AE9380]">
+          <a
+            href="/contact"
+            className="block text-[#2F2521] py-1 hover:text-[#AE9380]"
+          >
             Contacto
           </a>
         </div>
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default NavigationBar
+export default NavigationBar;
