@@ -6,34 +6,33 @@ import { MdArrowDropDown } from "react-icons/md";
 interface IAccordionItemProps {
   header: ReactNode;
   children?: ReactNode;
-  [key: string]: any; // This allows for rest props
+  [key: string]: any;
 }
 
-// Custom accordion item component
 const AccordionItem = ({ header, ...rest }: IAccordionItemProps) => {
   const [isOpen, setIsOpen] = useState(false)
-  
+
   return (
     <BaseAccordionItem
       {...rest}
       header={({ state: { isEnter } }) => (
-        <div className="flex items-center justify-between w-full py-4 px-4 border-b border-pink-200">
-          <h3 className="text-lg font-medium text-pink-800">{header}</h3>
+        <div className="flex items-center justify-between w-full py-4 px-4 border-b border-[#E7D2C4]">
+          <h3 className="text-lg font-medium text-[#6F5141]">{header}</h3>
           <div className={`transition-transform duration-300 ${isEnter ? "rotate-180" : ""}`}>
-            <MdArrowDropDown className="w-8 h-8 text-pink-500" aria-hidden="true" />
+            <MdArrowDropDown className="w-8 h-8 text-[#AE9380]" aria-hidden="true" />
           </div>
         </div>
       )}
-      className="mb-2 overflow-hidden border-b-1 border-zinc-400"
+      className="mb-2 overflow-hidden border-b border-[#E7D2C4]"
       buttonProps={{
-        className: "w-full hover:bg-pink-50 transition-colors",
+        className: "w-full hover:bg-[#FFF8F1] transition-colors",
         onClick: () => setIsOpen(prev => !prev)
       }}
       contentProps={{
         className: "transition-height duration-300 ease-out bg-white"
       }}
       panelProps={{
-        className: "p-5 text-gray-600 leading-relaxed"
+        className: "p-5 text-[#75665F] leading-relaxed"
       }}
     />
   )
@@ -42,92 +41,58 @@ const AccordionItem = ({ header, ...rest }: IAccordionItemProps) => {
 const HairStylingServices = (): JSX.Element => {
   return (
     <div className="w-full lg:w-6/12 mx-auto px-4 py-8">
-      <h2 className="text-3xl font-semibold text-center mb-8 text-pink-900" id="hair-styling-services-subtitle">
-        Our Hair Styling Services
+      <h2 className="text-3xl font-semibold text-center mb-8 text-[#6F5141]" id="hair-styling-services-subtitle">
+        Servicios de cabello
       </h2>
-      
+
       <Accordion className="w-full" transition transitionTimeout={250}>
-        <AccordionItem header="Haircuts">
+        <AccordionItem header="Corte y peinado">
           <p>
-            Our expert stylists offer precision cuts tailored to your face shape and personal style. 
-            From classic bobs to trendy pixies, we create looks that enhance your natural beauty.
-            All haircuts include a consultation, relaxing wash, and styling.
+            Cortes de precisión adaptados a tu tipo de rostro y estilo personal. Nuestras estilistas crean looks que realzan tu belleza natural con una consulta previa, lavado relajante y peinado incluido.
           </p>
-          <div className="mt-3 flex justify-between items-center border-t border-pink-200 pt-4">
-            <span className="font-medium">Starting at</span>
-            <span className="text-lg font-bold text-pink-700">$45</span>
-          </div>
         </AccordionItem>
-        
-        <AccordionItem header="Coloring">
+
+        <AccordionItem header="Balayage">
           <p>
-            Transform your look with our premium color services. Whether you want subtle highlights, 
-            balayage, ombré, or a complete color change, our specialists use high-quality products 
-            that protect your hair while delivering vibrant, long-lasting results.
+            Técnica de coloración que ilumina el cabello de forma natural y progresiva. Ideal para quienes buscan un resultado luminoso, sin raíces marcadas y con un mantenimiento más espaciado.
           </p>
-          <div className="mt-3 flex justify-between items-center border-t border-pink-200 pt-4">
-            <span className="font-medium">Starting at</span>
-            <span className="text-lg font-bold text-pink-700">$85</span>
-          </div>
         </AccordionItem>
-        
-        <AccordionItem header="Hair Extensions">
+
+        <AccordionItem header="Morena iluminada">
           <p>
-            Add length, volume, or both with our professional hair extension services. 
-            We offer various types including tape-in, micro-link, and sew-in extensions 
-            using only the finest quality human hair that blends seamlessly with your natural locks.
+            Coloración diseñada para oscuras y morenas que quieren luz sin perder su tono base. El resultado es un cabello con movimiento, calidez y luminosidad natural. Técnica especializada en AURA.
           </p>
-          <div className="mt-3 flex justify-between items-center border-t border-pink-200 pt-4">
-            <span className="font-medium">Starting at</span>
-            <span className="text-lg font-bold text-pink-700">$150</span>
-          </div>
         </AccordionItem>
-        
-        <AccordionItem header="Special Occasions">
+
+        <AccordionItem header="Mechas y tonalización">
           <p>
-            Look your absolute best for weddings, proms, galas, and other special events. 
-            Our stylists create elegant updos, romantic loose curls, or sophisticated styles 
-            that complement your outfit and stay perfect throughout your special day.
+            Desde mechas clásicas hasta tonalizaciones personalizadas para unificar el color, cubrir raíces o agregar dimensión. Consulta con nuestras especialistas para encontrar el tono ideal para ti.
           </p>
-          <div className="mt-3 flex justify-between items-center border-t border-pink-200 pt-4">
-            <span className="font-medium">Starting at</span>
-            <span className="text-lg font-bold text-pink-700">$65</span>
-          </div>
         </AccordionItem>
-        
-        <AccordionItem header="Perms & Relaxers">
+
+        <AccordionItem header="Peinados">
           <p>
-            Change your hair texture with our professional texture services. Whether you want 
-            to add curl and volume with a perm or achieve sleek, straight hair with a relaxer, 
-            our technicians use formulas that minimize damage while maximizing results.
+            Peinados para el día a día, ocasiones especiales, eventos o celebraciones. Desde recogidos elegantes hasta ondas suaves, adaptados a tu outfit y estilo personal.
           </p>
-          <div className="mt-3 flex justify-between items-center border-t border-pink-200 pt-4">
-            <span className="font-medium">Starting at</span>
-            <span className="text-lg font-bold text-pink-700">$95</span>
-          </div>
         </AccordionItem>
-        
-        <AccordionItem header="Conditioning Treatments">
+
+        <AccordionItem header="Cobertura de canas">
           <p>
-            Restore health and shine to damaged hair with our deep conditioning treatments. 
-            From protein-rich masks to moisturizing oils, we offer customized solutions for 
-            various hair concerns including dryness, breakage, and frizz.
+            Coloración profesional para cubrir canas con resultados naturales y duraderos. Utilizamos productos de alta calidad que cuidan la fibra capilar mientras unifican y enriquecen el tono.
           </p>
-          <div className="mt-3 flex justify-between items-center border-t border-pink-200 pt-4">
-            <span className="font-medium">Starting at</span>
-            <span className="text-lg font-bold text-pink-700">$35</span>
-          </div>
         </AccordionItem>
       </Accordion>
-      
+
       <div className="w-full mt-8 text-center flex justify-center">
         <a
-          href="/contact"
+          href="https://wa.me/50767925695"
+          target="_blank"
+          rel="noopener noreferrer"
           className="button-secondary min-w-full w-full sm:min-w-fit sm:w-fit text-white font-medium shadow-md"
-          title="Click for booking an appointment"
-          aria-label="Button for booking an appointment"
+          title="Agendar cita por WhatsApp"
+          aria-label="Agendar cita de cabello por WhatsApp"
         >
-          Book an Appointment
+          Reservar cita por WhatsApp
         </a>
       </div>
     </div>

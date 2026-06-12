@@ -5,67 +5,88 @@ import ServiceBlock from "@components/Services/ServiceBlock.astro";
 import Footer from "@components/Footer.astro";
 ---
 
-<Layout title="Services">
+<Layout title="AURA Beauty Salon | Servicios">
   <NavigationBar client:load />
   <!--- Banner Section --->
   <section
     id="all-services-banner"
     role="banner"
     class="relative w-full min-h-[90vh] max-h-[90vh] flex flex-col justify-center items-center"
-    aria-labelledby="nails-title"
+    aria-labelledby="services-title"
   >
-    <div id="nails-banner-fig" class="w-full absolute right-0 -z-10 min-h-[90vh] max-h-[90vh]">
+    <div class="w-full absolute right-0 -z-10 min-h-[90vh] max-h-[90vh]">
       <img
         class="w-full min-h-[90vh] max-h-[90vh] object-cover object-top -z-15"
         src="/images/services/all-services-banner.webp"
-        alt="alt"
+        alt="Servicios de AURA Beauty Salon en San Francisco, Ciudad de Panamá"
       >
     </div>
     <div class="flex flex-col justify-center items-center gap-5 relative px-3 mb-10">
-      <h1 class="text-4xl text-center text-white text-shadow" id="nails-title">
-        Indulge in Beauty, Relaxation, and Self-Care
+      <h1 class="text-4xl text-center text-white text-shadow" id="services-title">
+        Tratamientos diseñados para tu estilo
       </h1>
       <p class="text-center md:w-8/12 text-xl text-white text-shadow">
-        Explore our range of professional beauty treatments designed to make you look and feel your absolute best
+        En AURA Beauty Salon ofrecemos servicios profesionales de cabello, uñas, pestañas y más. Cada tratamiento está pensado con técnica, cuidado y atención personalizada.
       </p>
       <div class="flex justify-center items-center gap-5">
         <a
           href="#all-services-section"
           class="white-button text-white"
-          title="Click for exploring more about our hair styling services"
-          aria-label="Button for exploring more about our hair styling"
+          title="Ver todos los servicios de AURA Beauty Salon"
+          aria-label="Ver todos los servicios que ofrecemos"
         >
-          See All Services We Offer
+          Ver todos los servicios
+        </a>
+        <a
+          href="https://wa.me/50767925695"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="white-button text-white"
+          title="Agendar cita por WhatsApp"
+          aria-label="Agendar cita por WhatsApp"
+        >
+          Agendar por WhatsApp
         </a>
       </div>
     </div>
   </section>
+
   <main>
-    <section class="w-full" aria-label="All services section" id="all-services-section">
+    <section class="w-full" aria-label="Todos los servicios de AURA Beauty Salon" id="all-services-section">
       <ServiceBlock
         image="/images/services/hair-styling-service.webp"
-        title="Hair Styling"
-        slogan="Your hair, your crown — styled to perfection."
-        description="Step into a world where every strand matters. Our professional stylists blend creativity with precision to craft hairstyles that enhance your natural beauty, reflect your personality, and boost your confidence. From classic cuts to modern trends, we make your vision come to life."
+        title="Cabello"
+        slogan="Tu cabello, transformado con técnica y cuidado."
+        description="Desde cortes de precisión y peinados hasta balayage, morenas iluminadas, mechas y tonalización. Nuestras especialistas trabajan para que tu cabello luzca exactamente como lo imaginaste, con productos de calidad y atención personalizada. También ofrecemos cobertura de canas con resultados naturales y duraderos."
       />
       <ServiceBlock
         image="/images/services/massage-service.webp"
-        title="Massages"
-        slogan="Release the stress — restore your body and soul."
-        description="Enjoy a revitalizing massage experience tailored to your body's needs. Our expert therapists use soothing techniques to relieve tension, improve circulation, and promote deep relaxation. Step away from the noise and reconnect with your well-being in a serene environment."
+        title="Rizos / Curly Hair"
+        slogan="Cuidado especializado para cada tipo de rizo."
+        description="El cabello rizado merece técnica y conocimiento específico. En AURA trabajamos con definición de rizos, hidratación profunda, coloración adaptada al tipo de cabello y métodos de cuidado para curly hair. Cada resultado es natural, saludable y lleno de vida. (Imagen de referencia — CONFIRMAR CON CLIENTE foto real)"
       />
       <ServiceBlock
         image="/images/services/nails-service.webp"
-        title="Nails Services"
-        slogan="Elegant nails, detailed to perfection."
-        description="Let your hands speak style and confidence. We offer precision manicures, flawless gel finishes, and creative nail art to match your unique personality. Whether you're after subtle elegance or bold designs, your nails will always leave a lasting impression."
+        title="Uñas"
+        slogan="Diseños que hablan por ti."
+        description="Manicure, pedicure, rubber nails, esmalte semipermanente y diseños personalizados. Trabajamos con técnica y precisión para que tus uñas reflejen tu personalidad en cada detalle. Cada visita es una experiencia de cuidado completo para tus manos y pies."
       />
-      <ServiceBlock
-        image="/images/services/skin-care-service.webp"
-        title="Skin Care"
-        slogan="Glow starts with the right care."
-        description="Reveal your skin's natural radiance with treatments tailored to cleanse, hydrate, and rejuvenate. From deep cleansing facials to anti-aging therapies, our skincare experts use premium products and gentle techniques to leave your skin soft, refreshed, and glowing."
-      />
+      <div id="pestanas">
+        <ServiceBlock
+          image="/images/services/skin-care-service.webp"
+          title="Pestañas"
+          slogan="Una mirada que lo dice todo."
+          description="Servicios profesionales de lashes para transformar tu mirada y realzar tu belleza natural. Consulta con nuestro equipo sobre los servicios disponibles de pestañas. (CONFIRMAR CON CLIENTE: lifting, extensiones, laminado u otros servicios exactos)"
+        />
+      </div>
+      <div id="rizos">
+        <ServiceBlock
+          image="/images/services/hair-styling-service.webp"
+          title="Tratamientos capilares"
+          slogan="Hidratación, fuerza y brillo desde la raíz."
+          description="Tratamientos de hidratación profunda, alisado y recuperación capilar para devolver vida y brillo a tu cabello. También contamos con Ybera Black Diva y otros tratamientos regeneradores. (CONFIRMAR CON CLIENTE: keratina, cirugía capilar u otros alisados específicos)"
+        />
+      </div>
     </section>
   </main>
   <Footer />

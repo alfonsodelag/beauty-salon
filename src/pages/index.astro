@@ -7,45 +7,53 @@ import BannerSlider from '@components/Home/BannerSlider';
 import ServiceCard from '@components/Home/ServiceCard.astro';
 import BusinessHours from '@components/BusinessHours.astro';
 import Footer from '@components/Footer.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout title="Beauty Salon: Home">
+<Layout title="AURA Beauty Salon | Salón de belleza en San Francisco, Panamá">
 	<NavigationBar client:load />
 	<!--- Banner Section --->
 	<section class="home-banner-wrapper min-h-screen w-full relative over-hidden">
 		<article
-		class="absolute top-1/2 left-1/2 z-10 min-w-56 max-w-xl -translate-x-1/2 -translate-y-1/2 
+		class="absolute top-1/2 left-1/2 z-10 min-w-56 max-w-xl -translate-x-1/2 -translate-y-1/2
     bg-white/10 backdrop-blur-xs rounded-sm p-6 shadow-xl text-center text-white space-y-4"
 		>
 			<h1 class="text-4xl md:text-5xl font-bold drop-shadow-md text-shadow tracking-wide">
-				Awaken Your Beauty
+				Donde la belleza toma forma
 			</h1>
 			<p class="text-lg md:text-xl leading-relaxed drop-shadow-sm text-shadow">
-      	A sanctuary of elegance and care. Indulge in personalized treatments that leave you glowing — inside and out.
+      	Cabello, uñas, pestañas y buen café en San Francisco, Ciudad de Panamá.
     	</p>
-			<a
-				href="/contact"
-				class="inline-block mt-4 px-6 py-3 border-2 border-amber-200 text-white text-base md:text-lg
-				hover:bg-amber-100 hover:text-black transition-all duration-300 text-shadow hover-shadowless"
-			>
-				Book A Session
-			</a>
+			<div class="flex flex-col sm:flex-row gap-3 justify-center items-center mt-4">
+				<a
+					href="https://wa.me/50767925695"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-block px-6 py-3 bg-[#6F5141] text-white text-base md:text-lg
+					hover:bg-[#AE9380] transition-all duration-300 text-shadow hover-shadowless"
+				>
+					Agendar cita por WhatsApp
+				</a>
+				<a
+					href="/services"
+					class="inline-block px-6 py-3 border-2 border-[#FFE7CD] text-white text-base md:text-lg
+					hover:bg-[#FFE7CD]/20 transition-all duration-300 text-shadow hover-shadowless"
+				>
+					Ver servicios
+				</a>
+			</div>
 		</article>
 		<BannerSlider images={homeBannerImages} client:visible />
 	</section>
 	<!--- Services Section --->
 	<section
-		class="min-h-screen flex flex-col justify-center items-center py-10 bg-zinc-800"
+		class="min-h-screen flex flex-col justify-center items-center py-10 bg-[#2F2521]"
 		aria-labelledby="home-services-title"
 	>
 		<h2 class="capital text-4xl text-center mb-4 text-white" id="home-services-title">
-			our main services
+			nuestros servicios
 		</h2>
 		<p class="text-center max-w-8/12 text-white">
-			Discover our essential services tailored to help you look and feel radiant. From elegant hairstyles to nourishing skincare and flawless nails, each treatment is designed with care, precision, and a touch of indulgence.
+			En AURA Beauty Salon ofrecemos tratamientos diseñados para realzar tu belleza natural. Desde cabello hasta uñas y pestañas, cada servicio está pensado con técnica, cuidado y atención personalizada.
 		</p>
 		<article
 			class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-2 py-5"
@@ -53,66 +61,66 @@ import Footer from '@components/Footer.astro';
 		>
 			<ServiceCard
 				src="/images/home-services/service-1.webp"
-				alt="Hair stylist cutting the hair of a woman"
-				title="Hair Styling"
-				description="Custom haircuts, blowouts, and styles that reflect your personality — crafted by expert hands to leave you confident and radiant."
-			/>
-			<ServiceCard
-				src="/images/home-services/service-2.webp"
-				alt="Person holding a jar of skin cream"
-				title="Skin Care"
-				description="Facials and treatments that nourish your skin, target concerns, and leave your complexion glowing with health and beauty."
+				alt="Estilista peinando el cabello de una clienta en AURA Beauty Salon"
+				title="Cabello"
+				description="Cortes, balayage, morenas iluminadas, mechas, tonalización y peinados. Tu cabello, transformado con técnica y cuidado personalizado."
 			/>
 			<ServiceCard
 				src="/images/home-services/service-3.webp"
-				alt="Professional cleaning a client's nails"
-				title="Nails Services"
-				description="Perfect manicures and pedicures, vibrant colors, and long-lasting finishes — because your hands and feet deserve love too."
+				alt="Especialista realizando manicure en AURA Beauty Salon"
+				title="Uñas"
+				description="Manicure, pedicure, rubber nails y diseños únicos. Porque tus manos y pies también merecen atención y estilo."
+			/>
+			<ServiceCard
+				src="/images/home-services/service-2.webp"
+				alt="Especialista en tratamiento de pestañas en AURA Beauty Salon"
+				title="Pestañas"
+				description="Servicios de lashes profesionales para transformar tu mirada y realzar tu belleza natural sin esfuerzo. (CONFIRMAR servicios exactos con el cliente)"
 			/>
 		</article>
 		<a
 			class="text-white white-button"
 			href="/services"
-			aria-label="Button for going to services page"
-			title="Click for going to Services page"
+			aria-label="Botón para ir a la página de servicios"
+			title="Ver todos los servicios de AURA Beauty Salon"
 		>
-			See All Services
+			Ver todos los servicios
 		</a>
 	</section>
 	<!--- About Section --->
-	<section class="flex flex-col py-10" aria-label="Informational background about the salon">
-		<!--- "Who we are" --->
+	<section class="flex flex-col py-10" aria-label="Información sobre AURA Beauty Salon">
+		<!--- "Quiénes somos" --->
 		<article
 			class="w-full flex flex-col md:flex-row justify-center items-center gap-5 py-10"
 			aria-labelledby="who-we-are-subtitle"
 		>
 			<div class="w-full md:w-5/12 flex flex-col gap-3 px-5">
-				<h2 class="text-3xl text-pink-700" id="who-we-are-subtitle capital">
-					who we are...
+				<h2 class="text-3xl text-[#6F5141]" id="who-we-are-subtitle">
+					Sobre AURA...
 				</h2>
-				<p class="text-xl">
-					At our beauty salon, we believe in enhancing the natural beauty of every individual. Our team of passionate professionals brings years of experience, creativity, and care to every service — making each visit a celebration of you.
+				<p class="text-xl text-[#2F2521]">
+					En AURA Beauty Salon creemos que ir al salón puede ser más que una cita: puede ser tu mejor terapia. Nuestro espacio combina técnica, calidez y una experiencia pensada para que te sientas cómoda desde que entras hasta que sales.
 				</p>
 				<a
 					class="black-button"
 					href="/about"
-					aria-label="Button for going to About page"
-					title="Click for going to About page"
+					aria-label="Botón para ir a la página Sobre Nosotros"
+					title="Conocer más sobre AURA Beauty Salon"
 				>
-					know more
+					conocer más
 				</a>
 			</div>
-			<figure class="w-full md:w-5/12 flex justify-center items-center bg-amber-50" id="who-we-are-fig">
+			<figure class="w-full md:w-5/12 flex justify-center items-center bg-[#FFF8F1]" id="who-we-are-fig">
 				<img
 					class="w-full hover:brightness-110 duration-300 transition-all"
 					src="/images/home-about/home-about-1.webp"
-					alt="Beauty salon illustration"
-					title="title"
+					alt="Interior de AURA Beauty Salon en San Francisco, Ciudad de Panamá"
+					title="AURA Beauty Salon"
 					loading="lazy"
 				>
 			</figure>
 		</article>
-		<!--- "Our commitment" --->
+		<!--- "Nuestro compromiso" --->
 		<article
 			class="w-full flex flex-col md:flex-row justify-center items-center gap-5 py-10"
 			aria-labelledby="our-commitment-subtitle"
@@ -121,25 +129,25 @@ import Footer from '@components/Footer.astro';
 				<img
 					class="w-full hover:brightness-110 duration-300 transition-all"
 					src="/images/home-about/home-about-2.webp"
-					alt="alt"
-					title="title"
+					alt="Atención personalizada en AURA Beauty Salon"
+					title="Cuidado personalizado en AURA Beauty Salon"
 					loading="lazy"
 				>
 			</figure>
 			<div class="w-full md:w-5/12 flex flex-col gap-3 px-5">
-				<h2 class="text-3xl text-pink-700" id="our-commitment-subtitle capital">
-					our commitment...
+				<h2 class="text-3xl text-[#6F5141]" id="our-commitment-subtitle">
+					Belleza con técnica y detalle
 				</h2>
-				<p class="text-xl">
-					We are dedicated to creating a relaxing and inspiring environment where beauty meets wellness. With high-quality products, personalized attention, and a commitment to hygiene and excellence, we make your self-care journey both luxurious and safe.
+				<p class="text-xl text-[#2F2521]">
+					Nos dedicamos a crear un ambiente relajante e inspirador donde la belleza se encuentra con el bienestar. Con productos de alta calidad, atención personalizada y un compromiso con la higiene y la excelencia, hacemos que tu visita sea siempre una experiencia premium.
 				</p>
 				<a
 					class="black-button"
 					href="/contact"
-					aria-label="Button for going to Contact page"
-					title="Click for going to Contact page"
+					aria-label="Botón para ir a la página de contacto"
+					title="Contáctenos en AURA Beauty Salon"
 				>
-					contact us
+					contáctenos
 				</a>
 			</div>
 		</article>
@@ -150,13 +158,13 @@ import Footer from '@components/Footer.astro';
 	<section
 		class="min-h-[80vh] flex flex-col justify-center items-center"
 		id="home-quote-section"
-		aria-label="Motivational quote final section"
+		aria-label="Frase inspiradora de cierre"
 	>
 		<blockquote class="max-w-10/12 md:max-w-8/12 flex flex-col justify-center items-center text-shadow">
 			<p class="text-3xl text-center text-white italic leading-relaxed">
-				<q>Beauty begins the moment you decide to be yourself.</q>
+				<q>Belleza, bienestar y confianza. Un espacio para verte y sentirte mejor.</q>
 			</p>
-			<cite class="mt-4 block text-2xl not-italic text-white">—Coco Chanel</cite>
+			<cite class="mt-4 block text-2xl not-italic text-white">— AURA Beauty Salon</cite>
 		</blockquote>
 	</section>
 	<!--- Footer Section --->

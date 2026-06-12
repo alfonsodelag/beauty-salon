@@ -1,137 +1,142 @@
 ---
 import { salonData } from "@data/salonInfo"
 
-const { name, address, city, state, email, phone, facebook, instagram, pinterest, youtube } = salonData
+const { name, address, city, state, email, phone, facebook, instagram } = salonData
 
 import { getCurrentYear } from "@utils/getCurrentYear"
 ---
 
-<footer class="w-full flex-col px-5 py-10 bg-[#fdf6f0]" id="footer">
+<footer class="w-full flex-col px-5 py-10 bg-[#FFF8F1] border-t border-[#E7D2C4]" id="footer">
   <section
     class="w-full flex flex-col justify-start items-start sm:flex-row md:justify-evenly gap-5"
-    aria-label="Information and links section"
+    aria-label="Información y enlaces de AURA Beauty Salon"
   >
     <ul class="w-full sm:w-fit flex flex-col gap-2">
       <li>
-        <h2 class="text-xl text-pink-800"><i class="fa-solid fa-scissors"></i> {name}</h2>
+        <h2 class="text-xl text-[#6F5141]"><i class="fa-solid fa-scissors"></i> {name}</h2>
       </li>
-      <li>
+      <li class="text-[#75665F]">
         <i class="fa-solid fa-location-arrow"></i> {address}
       </li>
-      <li>
+      <li class="text-[#75665F]">
         <i class="fa-solid fa-city"></i> {city}
       </li>
-      <li>
+      <li class="text-[#75665F]">
         <i class="fa-solid fa-map-location-dot"></i> {state}
       </li>
-      <li>
+      <li class="text-[#75665F]">
         <i class="fa-solid fa-envelope"></i> {email}
       </li>
       <li>
-        <i class="fa-solid fa-phone"></i> {phone}
+        <a
+          href={`https://wa.me/50767925695`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[#75665F] hover:text-[#AE9380] transition-colors"
+        >
+          <i class="fa-solid fa-phone"></i> {phone}
+        </a>
       </li>
     </ul>
     <nav class="w-full sm:w-fit flex flex-col gap-2">
-      <h2 class="text-xl">Navigation</h2>
+      <h2 class="text-xl text-[#2F2521]">Navegación</h2>
       <ul class="flex flex-col">
         <li>
-          <a href="/" class="text-gray-800 hover:text-pink-500">
-            Home
+          <a href="/" class="text-[#75665F] hover:text-[#AE9380] transition-colors">
+            Inicio
           </a>
         </li>
         <li>
-          <a href="/about" class="text-gray-800 hover:text-pink-500">
-            About
+          <a href="/about" class="text-[#75665F] hover:text-[#AE9380] transition-colors">
+            Nosotros
           </a>
         </li>
         <li>
-          <a href="/services" class="text-gray-800 hover:text-pink-500">
-            Services
+          <a href="/services" class="text-[#75665F] hover:text-[#AE9380] transition-colors">
+            Servicios
           </a>
         </li>
         <li>
-          <a href="/contact" class="text-gray-800 hover:text-pink-500">
-            Contact
+          <a href="/contact" class="text-[#75665F] hover:text-[#AE9380] transition-colors">
+            Contacto
           </a>
         </li>
       </ul>
     </nav>
     <nav class="w-full sm:w-fit flex flex-col gap-2">
-      <h2 class="text-xl">Services</h2>
+      <h2 class="text-xl text-[#2F2521]">Servicios</h2>
       <ul class="flex flex-col">
         <li>
-          <a href="/services" class="text-gray-800 hover:text-pink-500">
-            See All Services
+          <a href="/services" class="text-[#75665F] hover:text-[#AE9380] transition-colors">
+            Ver todos los servicios
           </a>
         </li>
         <li>
-          <a href="/hair-styling" class="text-gray-800 hover:text-pink-500">
-            Hair Styling
+          <a href="/hair-styling" class="text-[#75665F] hover:text-[#AE9380] transition-colors">
+            Cabello
           </a>
         </li>
         <li>
-          <a href="/nails" class="text-gray-800 hover:text-pink-500">
-            Nails
+          <a href="/nails" class="text-[#75665F] hover:text-[#AE9380] transition-colors">
+            Uñas
           </a>
         </li>
         <li>
-          <a href="/skin-care" class="text-gray-800 hover:text-pink-500">
-            Skin Care
+          <a href="/services#pestanas" class="text-[#75665F] hover:text-[#AE9380] transition-colors">
+            Pestañas
           </a>
         </li>
         <li>
-          <a href="/massages" class="text-gray-800 hover:text-pink-500">
-            Massage
+          <a href="/services#rizos" class="text-[#75665F] hover:text-[#AE9380] transition-colors">
+            Rizos / Curly Hair
           </a>
         </li>
       </ul>
     </nav>
     <div class="w-full sm:w-fit flex flex-col gap-2">
-      <h2 class="text-xl">Follow Us</h2>
-      <div class="flex justify-start items-center gap-3">
+      <h2 class="text-xl text-[#2F2521]">Síguenos</h2>
+      <div class="flex justify-start items-center gap-4">
         <a
           href={facebook}
-          aria-label="Button for going to our Facebook page"
-          title="Click for going to our Facebook page"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[#75665F] hover:text-[#6F5141] transition-colors text-xl"
+          aria-label="Ir a nuestra página de Facebook"
+          title="Facebook de AURA Beauty Salon"
         >
           <i class="fa-brands fa-facebook"></i>
         </a>
         <a
           href={instagram}
-          aria-label="Button for oing to our Instagram account"
-          title="Click for oing to our Instagram account"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[#75665F] hover:text-[#6F5141] transition-colors text-xl"
+          aria-label="Ir a nuestro Instagram @aura.salonpty"
+          title="Instagram de AURA Beauty Salon"
         >
           <i class="fa-brands fa-instagram"></i>
         </a>
         <a
-          href={pinterest}
-          aria-label="Button for going to our Pinterest account"
-          title="Click for going to our Pinterest account"
+          href="https://wa.me/50767925695"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[#75665F] hover:text-[#6F5141] transition-colors text-xl"
+          aria-label="Escribir a AURA Beauty Salon por WhatsApp"
+          title="WhatsApp de AURA Beauty Salon"
         >
-          <i class="fa-brands fa-pinterest"></i>
-        </a>
-        <a
-          href={youtube}
-          aria-label="Button for going to our YouTube channel"
-          title="Click for going to our YouTube channel"
-        >
-          <i class="fa-brands fa-youtube"></i>
+          <i class="fa-brands fa-whatsapp"></i>
         </a>
       </div>
+      <p class="text-sm text-[#75665F] mt-2">
+        <i class="fa-regular fa-clock"></i> Mar–Sáb: 10:00–19:00<br />
+        Dom: 10:00–15:00
+      </p>
     </div>
   </section>
   <!--- End of info & links section --->
-  <section class="flex justify-center items-center mt-10" aria-label="Copyright & author section">
-    <p>
-      <span>© { getCurrentYear() } </span>
-      <a
-        class='dev-github'
-        href="https://github.com/MartinXCVI"
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        MartinXCVI <i class="fa-brands fa-github"></i>
-    </a>
+  <section class="flex justify-center items-center mt-10 border-t border-[#E7D2C4] pt-5" aria-label="Copyright section">
+    <p class="text-[#75665F] text-sm text-center">
+      <span>© { getCurrentYear() } {name}. Todos los derechos reservados.</span>
     </p>
   </section>
 </footer>

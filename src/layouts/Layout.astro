@@ -10,17 +10,22 @@ const { title } = Astro.props as ILayoutProps;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
-    <meta name="description" content="Beauty Salon website offering professional beauty, massage, skin care, and hair styling services. Book your appointment today." />
-    <meta name="author" content="MartinXCVI" />
+    <meta name="description" content="AURA Beauty Salon en Calle 70, San Francisco. Balayage, uñas, pestañas, tratamientos capilares, curly hair y buen café en Ciudad de Panamá. Agenda tu cita." />
+    <meta name="author" content="AURA Beauty Salon" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#AE9380" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="AURA Beauty Salon en Calle 70, San Francisco. Balayage, uñas, pestañas, tratamientos capilares, curly hair y buen café en Ciudad de Panamá. Agenda tu cita." />
+    <meta property="og:locale" content="es_PA" />
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- Preconnect for Google Fonts -->

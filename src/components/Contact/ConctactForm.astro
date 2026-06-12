@@ -11,115 +11,138 @@ if(!ACCESS_KEY) console.error('Missing environment variable: ACCESS_KEY')
   <form method="POST" class="contact-form" id="contact-form">
     <fieldset class="contact-field" aria-labelledby="contact-form-title">
       <legend id="contact-form-title">
-        Contact Us
+        Contáctenos
       </legend>
       <input type="hidden" name="access_key" value={ACCESS_KEY}>
-      <input type="hidden" name="from_name" value="Landscapist">
+      <input type="hidden" name="from_name" value="AURA Beauty Salon">
       <input type="checkbox" name="botcheck" id="botcheck-input" style="display: none;" aria-hidden="true">
-      <!---- Full Name ---->
+      <!---- Nombre completo ---->
       <div class="contact-div">
         <label for="fullname-input" class="form-label">
-          <i class="fa-solid fa-user" aria-hidden="true"></i> Fullname
+          <i class="fa-solid fa-user" aria-hidden="true"></i> Nombre completo
         </label>
         <input
           type="text"
-          class="form-input contact-input" 
-          name="fullname" 
+          class="form-input contact-input"
+          name="fullname"
           id="fullname-input"
           minlength="3"
           maxlength="75"
-          placeholder="Your full name here"
-          aria-label="Full Name"
+          placeholder="Tu nombre completo"
+          aria-label="Nombre completo"
           required
         >
       </div>
-      <!---- Email ---->
-      <div class="contact-div">
-        <label for="email-input" class="form-label">
-          <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email
-        </label>
-        <input
-          type="email" 
-          class="form-input contact-input" 
-          name="email" 
-          id="email-input"
-          maxlength="120"
-          placeholder="Your email address here"
-          aria-label="Email"
-          autocomplete="on"
-          required
-        >
-      </div>
-      <!---- Phone ---->
+      <!---- Teléfono / WhatsApp ---->
       <div class="contact-div">
         <label for="phone-input" class="form-label">
-          <i class="fa-solid fa-phone" aria-hidden="true"></i> Phone
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Teléfono / WhatsApp
         </label>
         <input
           type="tel"
-          class="form-input contact-input" 
-          name="phone" 
+          class="form-input contact-input"
+          name="phone"
           id="phone-input"
           minlength="7"
-          maxlength="15"
-          placeholder="Your phone number here"
-          aria-label="Phone"
+          maxlength="20"
+          placeholder="Tu número de teléfono o WhatsApp"
+          aria-label="Teléfono o WhatsApp"
           autocomplete="on"
           required
         >
       </div>
-      <!---- Subject ---->
+      <!---- Correo electrónico ---->
       <div class="contact-div">
-        <label for="subject-input" class="form-label">
-          <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Subject
+        <label for="email-input" class="form-label">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i> Correo electrónico
         </label>
-        <input 
-          type="text" 
-          class="form-input contact-input" 
-          name="subject" 
-          id="subject-input"
-          minlength="6"
-          maxlength="70"
-          placeholder="Your message's subject here"
-          aria-label="Subject"
+        <input
+          type="email"
+          class="form-input contact-input"
+          name="email"
+          id="email-input"
+          maxlength="120"
+          placeholder="Tu correo electrónico"
+          aria-label="Correo electrónico"
+          autocomplete="on"
           required
         >
       </div>
-      <!---- Message ---->
+      <!---- Servicio de interés ---->
+      <div class="contact-div">
+        <label for="service-input" class="form-label">
+          <i class="fa-solid fa-scissors" aria-hidden="true"></i> Servicio de interés
+        </label>
+        <select
+          class="form-input contact-input"
+          name="service"
+          id="service-input"
+          aria-label="Servicio de interés"
+        >
+          <option value="">Selecciona un servicio</option>
+          <option value="Cabello — Corte y peinado">Cabello — Corte y peinado</option>
+          <option value="Cabello — Balayage">Cabello — Balayage</option>
+          <option value="Cabello — Morena iluminada">Cabello — Morena iluminada</option>
+          <option value="Cabello — Mechas">Cabello — Mechas</option>
+          <option value="Cabello — Tonalización">Cabello — Tonalización</option>
+          <option value="Cabello — Cobertura de canas">Cabello — Cobertura de canas</option>
+          <option value="Rizos / Curly Hair">Rizos / Curly Hair</option>
+          <option value="Tratamiento capilar">Tratamiento capilar</option>
+          <option value="Uñas — Manicure">Uñas — Manicure</option>
+          <option value="Uñas — Pedicure">Uñas — Pedicure</option>
+          <option value="Uñas — Rubber nails">Uñas — Rubber nails</option>
+          <option value="Uñas — Diseños">Uñas — Diseños</option>
+          <option value="Pestañas">Pestañas</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+      <!---- Fecha tentativa ---->
+      <div class="contact-div">
+        <label for="date-input" class="form-label">
+          <i class="fa-regular fa-calendar" aria-hidden="true"></i> Fecha tentativa
+        </label>
+        <input
+          type="date"
+          class="form-input contact-input"
+          name="date"
+          id="date-input"
+          aria-label="Fecha tentativa de la cita"
+        >
+      </div>
+      <!---- Mensaje ---->
       <div class="contact-div">
         <label for="message-input" class="form-label">
-          <i class="fa-solid fa-message" aria-hidden="true"></i> Message
+          <i class="fa-solid fa-message" aria-hidden="true"></i> Mensaje
         </label>
         <textarea
-          name="message" 
-          class="form-textarea contact-input" 
-          rows="5" 
+          name="message"
+          class="form-textarea contact-input"
+          rows="5"
           id="message-input"
-          minlength="30"
+          minlength="10"
           maxlength="500"
-          placeholder="Your detailed message here"
-          aria-label="Message"
-          required
+          placeholder="¿Tienes alguna pregunta o detalle adicional? Escríbenos aquí."
+          aria-label="Mensaje"
         ></textarea>
       </div>
     </fieldset>
     <!---- * BUTTONS * ---->
-    <section class="form-buttons" aria-label="Form buttons section">
+    <section class="form-buttons" aria-label="Botones del formulario">
       <button
         type="submit"
         class="form-btn send-btn"
-        title="Submit form with consultation request"
-        aria-label="Submit form with consultation request"
+        title="Enviar solicitud de cita"
+        aria-label="Enviar solicitud de cita a AURA Beauty Salon"
       >
-        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send
+        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Enviar solicitud
       </button>
       <button
         type="reset"
         class="form-btn clear-btn"
-        title="Clear all form fields"
-        aria-label="Clear all form fields"
+        title="Limpiar todos los campos del formulario"
+        aria-label="Limpiar todos los campos del formulario"
       >
-        <i class="fa-solid fa-broom" aria-hidden="true"></i> Clear
+        <i class="fa-solid fa-broom" aria-hidden="true"></i> Limpiar
       </button>
     </section>
     <!--- * Result Message * --->

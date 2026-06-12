@@ -6,7 +6,7 @@ import GallerySlider from "@components/Nails/GallerySlider"
 import Footer from "@components/Footer.astro"
 ---
 
-<Layout title="Nails">
+<Layout title="AURA Beauty Salon | Uñas">
   <NavigationBar client:load />
   <!--- Banner Section --->
   <section
@@ -19,32 +19,34 @@ import Footer from "@components/Footer.astro"
       <img
         class="w-full max-h-[90vh] min-h-[90vh] object-cover object-top -z-15"
         src="/images/nails/nails-banner.webp"
-        alt="Nails professional working background image"
+        alt="Especialista en uñas trabajando en AURA Beauty Salon"
       >
     </div>
     <div class="flex flex-col justify-center items-center gap-5 relative px-3">
       <h1 class="text-4xl text-center text-white text-shadow" id="nails-title">
-        Nail Perfection, One Tip at a Time
+        Uñas con estilo y precisión
       </h1>
       <p class="text-center md:w-8/12 text-xl text-white text-shadow">
-        Discover the art and care behind beautifully crafted nails.
+        Manicure, pedicure, rubber nails y diseños personalizados hechos con técnica y cuidado.
       </p>
-      <div class="flex justify-center items-center gap-5">
+      <div class="flex justify-center items-center gap-5 flex-wrap">
         <a
-          href="/contact"
+          href="https://wa.me/50767925695"
+          target="_blank"
+          rel="noopener noreferrer"
           class="white-button text-white"
-          title="Click for booking an appointment"
-          aria-label="Button for booking an appointment"
+          title="Agendar cita de uñas por WhatsApp"
+          aria-label="Agendar cita en AURA Beauty Salon por WhatsApp"
         >
-          Book Now
+          Agendar cita
         </a>
         <a
-          href="#"
+          href="#nails-services-section"
           class="button-secondary"
-          title="Click for exploring more about our hair styling services"
-          aria-label="Button for exploring more about our hair styling"
+          title="Ver servicios de uñas"
+          aria-label="Ver servicios de uñas en AURA Beauty Salon"
         >
-          View Services
+          Ver servicios
         </a>
       </div>
     </div>
@@ -53,51 +55,51 @@ import Footer from "@components/Footer.astro"
   <section
     class="flex flex-col justify-center items-center p-5"
     aria-labelledby="nails-services-title"
+    id="nails-services-section"
   >
-    <h2 class="text-3xl md:text-5xl font-bold my-10 text-pink-700" id="nails-services-title">
-      Our Nails Services
+    <h2 class="text-3xl md:text-5xl font-bold my-10 text-[#6F5141]" id="nails-services-title">
+      Nuestros servicios de uñas
     </h2>
     <div class="flex flex-col justify-center items-center md:flex-row md:items-start md:flex-wrap gap-7 py-5">
-      <NailServiceCard 
-        title="Classic Manicure"
+      <NailServiceCard
+        title="Manicure clásica"
         image="/images/nails/nails-services/manicure.webp"
-        description="Enjoy a traditional manicure that includes nail shaping, cuticle care, a relaxing hand massage, and your choice of polish."
+        description="Manicure tradicional que incluye limado y forma de uñas, cuidado de cutículas, masaje de manos relajante y esmalte a tu elección."
       />
-      <NailServiceCard 
-        title="Gel Nails"
+      <NailServiceCard
+        title="Uñas de gel"
         image="/images/nails/nails-services/gel-nails.webp"
-        description="Get long-lasting shine and color with our chip-resistant gel manicure, featuring a flawless finish that dries instantly."
+        description="Brillo y color de larga duración con nuestra manicure de gel. Acabado perfecto, resistente al chip, que seca al instante."
       />
-      <NailServiceCard 
-        title="Nails Repair"
+      <NailServiceCard
+        title="Rubber nails"
         image="/images/nails/nails-services/nails-repair.webp"
-        description="Restore the strength and look of broken or damaged nails with our expert repair techniques using salon-grade products."
+        description="Técnica de alto rendimiento que ofrece mayor durabilidad y flexibilidad. Ideal para quienes buscan uñas resistentes con acabado impecable y elegante."
       />
-      <NailServiceCard 
-        title="French Tips"
+      <NailServiceCard
+        title="French tips"
         image="/images/nails/nails-services/french-tips.webp"
-        description="Timeless and elegant, our French tips offer a clean, polished look with soft white edges and a natural pink base."
+        description="Clásico y atemporal. Bordes blancos limpios sobre base natural rosada para un look cuidado y refinado que nunca pasa de moda."
       />
-      <NailServiceCard 
-        title="Spa Pedicure"
+      <NailServiceCard
+        title="Spa pedicure"
         image="/images/nails/nails-services/spa-pedicure.webp"
-        description="Relax with a luxurious spa pedicure that includes exfoliation, massage, nail care, and a fresh coat of long-lasting polish."
+        description="Pedicure de lujo que incluye exfoliación, masaje, cuidado de uñas y esmalte de larga duración. Un momento de relajación total para tus pies."
       />
-      <NailServiceCard 
-        title="Nails Art Design"
+      <NailServiceCard
+        title="Diseños personalizados"
         image="/images/nails/nails-services/nails-art-design.webp"
-        description="Express your style with detailed nail art — from minimalist patterns to bold custom designs, all expertly hand-painted."
+        description="Expresa tu personalidad con diseños de nail art hechos a mano — desde patrones minimalistas hasta diseños audaces y personalizados."
       />
     </div>
   </section>
   <!--- Lightbox Gallery --->
   <GallerySlider client:visible />
-  <!--- Why Clients Love Us --->
+  <!--- Por qué elegir AURA --->
   <section
     class="relative w-full h-[85vh] md:h-[80vh] flex items-center justify-center text-white overflow-hidden px-5 py-10"
-    aria-labelledby="why-clients-love-us-subtitle"
+    aria-labelledby="why-choose-aura-subtitle"
   >
-    <!-- Background video -->
     <video
       autoplay
       muted
@@ -106,46 +108,45 @@ import Footer from "@components/Footer.astro"
       class="absolute inset-0 w-full h-full object-cover z-0"
     >
       <source src="/videos/nails/nails-video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
     </video>
 
-    <!-- Dark overlay -->
     <div class="absolute inset-0 bg-black/60 z-10" aria-hidden="true"></div>
 
-    <!-- Content -->
     <div class="relative z-20 max-w-3xl mx-auto text-center px-4">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6" id="why-clients-love-us-subtitle">
-        Why Clients Love Us
+      <h2 class="text-3xl md:text-4xl font-bold mb-6" id="why-choose-aura-subtitle">
+        ¿Por qué elegir AURA?
       </h2>
       <ul class="space-y-3 text-lg text-left max-w-md mx-auto mb-10">
         <li class="flex items-center gap-3">
-          <i class="fas fa-check-circle text-pink-400 text-xl"></i>
-          Experienced nail technicians
+          <i class="fas fa-check-circle text-[#AE9380] text-xl"></i>
+          Especialistas en uñas con técnica y experiencia
         </li>
         <li class="flex items-center gap-3">
-          <i class="fas fa-check-circle text-pink-400 text-xl"></i>
-          Clean & sanitized tools
+          <i class="fas fa-check-circle text-[#AE9380] text-xl"></i>
+          Herramientas limpias y esterilizadas
         </li>
         <li class="flex items-center gap-3">
-          <i class="fas fa-check-circle text-pink-400 text-xl"></i>
-          Long-lasting quality products
+          <i class="fas fa-check-circle text-[#AE9380] text-xl"></i>
+          Productos de calidad profesional y larga duración
         </li>
         <li class="flex items-center gap-3">
-          <i class="fas fa-check-circle text-pink-400 text-xl"></i>
-          Personalized designs & color consulting
+          <i class="fas fa-check-circle text-[#AE9380] text-xl"></i>
+          Diseños personalizados y asesoría de color
         </li>
         <li class="flex items-center gap-3">
-          <i class="fas fa-check-circle text-pink-400 text-xl"></i>
-          Friendly, welcoming environment
+          <i class="fas fa-check-circle text-[#AE9380] text-xl"></i>
+          Ambiente cálido y atención genuina
         </li>
       </ul>
       <a
-        href="/contact"
+        href="https://wa.me/50767925695"
+        target="_blank"
+        rel="noopener noreferrer"
         class="button-secondary"
-        aria-label="Button for booking an appointment"
-        title="Click for booking an appointment"
+        aria-label="Agendar cita de uñas por WhatsApp"
+        title="Agendar cita en AURA Beauty Salon"
       >
-        Book An Appointment
+        Reservar cita
       </a>
     </div>
   </section>
