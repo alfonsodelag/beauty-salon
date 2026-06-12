@@ -3,12 +3,13 @@ import Layout from '@layouts/Layout.astro'
 import NavigationBar from '@components/Navigation'
 import Footer from '@components/Footer.astro'
 import PortableTextRenderer from '@components/Blog/PortableTextRenderer'
-import { sanityClient } from '@lib/sanityClient'
+import { sanityClient, AURA_CATEGORIES } from '@lib/sanityClient'
 import { urlFor } from '@lib/sanityImage'
 
 export async function getStaticPaths() {
   const posts = await sanityClient.fetch(
-    `*[_type == "post"] { "slug": slug.current }`
+    `*[_type == "post" && category->slug.current in $cats] { "slug": slug.current }`,
+    { cats: AURA_CATEGORIES }
   )
   return posts.map((post: { slug: string }) => ({ params: { slug: post.slug } }))
 }
