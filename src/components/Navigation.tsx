@@ -108,7 +108,7 @@ const NavigationBar = (): JSX.Element => {
               <img
                 src="/images/aura-logo.png"
                 alt="AURA Beauty Salon logo"
-                className="h-12 w-auto"
+                className="h-20 w-auto"
                 loading="lazy"
                 title="AURA Beauty Salon"
                 aria-label="AURA Beauty Salon logo"
